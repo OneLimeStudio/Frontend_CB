@@ -20,7 +20,7 @@ const STARTERS: Record<string, string> = {
 
 const DIFFICULTY_COLORS: Record<string, string> = {
   easy: "text-neon border-neon/30 bg-neon/5",
-  medium: "text-yellow-400 border-yellow-400/30 bg-yellow-400/5",
+  medium: "text-warning border-warning/30 bg-warning/5",
   hard: "text-destructive border-destructive/30 bg-destructive/5",
 };
 

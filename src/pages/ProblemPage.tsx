@@ -38,8 +38,8 @@ export default function ProblemPage() {
   }, [id]);
 
   useEffect(() => {
-    setCode(STARTERS[language] || "");
-  }, [language]);
+    setCode(getStarter(problem?.title ?? "", language));
+  }, [language, problem]);
 
   // Poll for verdict
   useEffect(() => {

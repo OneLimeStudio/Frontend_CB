@@ -167,7 +167,7 @@ export default function MatchPage() {
                 <div className="ml-auto">
                   {opponent.verdict === "accepted" && <CheckCircle className="h-4 w-4 neon-text" />}
                   {opponent.verdict === "wrong_answer" && <XCircle className="h-4 w-4 text-destructive" />}
-                  {opponent.verdict === "pending" && submitted && <Clock className="h-4 w-4 text-yellow-400" />}
+                  {opponent.verdict === "pending" && submitted && <Clock className="h-4 w-4 text-warning" />}
                 </div>
               </div>
             </div>

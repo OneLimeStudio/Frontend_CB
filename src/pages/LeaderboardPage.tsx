@@ -16,16 +16,16 @@ export default function LeaderboardPage() {
   }, []);
 
   const getRankIcon = (rank: number) => {
-    if (rank === 1) return <Crown className="h-4 w-4 text-yellow-400" />;
-    if (rank === 2) return <Medal className="h-4 w-4 text-slate-300" />;
-    if (rank === 3) return <Medal className="h-4 w-4 text-amber-600" />;
+    if (rank === 1) return <Crown className="h-4 w-4" style={{ color: "hsl(48 96% 53%)" }} />;
+    if (rank === 2) return <Medal className="h-4 w-4" style={{ color: "hsl(215 20% 65%)" }} />;
+    if (rank === 3) return <Medal className="h-4 w-4" style={{ color: "hsl(30 80% 50%)" }} />;
     return <span className="font-mono text-sm text-muted-foreground w-4 text-center">{rank}</span>;
   };
 
   const getRankBg = (rank: number) => {
-    if (rank === 1) return "bg-yellow-400/5 border-yellow-400/20";
-    if (rank === 2) return "bg-slate-300/5 border-slate-300/20";
-    if (rank === 3) return "bg-amber-600/5 border-amber-600/20";
+    if (rank === 1) return "border-border" + " " + "rank-gold";
+    if (rank === 2) return "border-border rank-silver";
+    if (rank === 3) return "border-border rank-bronze";
     return "bg-surface border-border";
   };
 

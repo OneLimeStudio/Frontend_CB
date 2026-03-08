@@ -36,8 +36,8 @@ export default function LeaderboardPage() {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="mb-8 text-center">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-full border border-yellow-400/30 bg-yellow-400/5 mb-4">
-            <Trophy className="h-7 w-7 text-yellow-400" />
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-full border border-accent/30 bg-accent/5 mb-4" style={{ borderColor: "hsl(48 96% 53% / 0.3)", background: "hsl(48 96% 53% / 0.05)" }}>
+            <Trophy className="h-7 w-7" style={{ color: "hsl(48 96% 53%)" }} />
           </div>
           <h1 className="font-mono text-3xl font-bold text-foreground">
             Leader<span className="neon-text">board</span>

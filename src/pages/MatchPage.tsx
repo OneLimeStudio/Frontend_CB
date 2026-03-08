@@ -229,13 +229,13 @@ export default function MatchPage() {
               myVerdict === "accepted"
                 ? "border-neon/30 bg-neon/5"
                 : myVerdict === "pending"
-                ? "border-yellow-400/30 bg-yellow-400/5"
+                ? "border-warning/30 bg-warning/5"
                 : "border-destructive/30 bg-destructive/5"
             }`}>
               {myVerdict === "accepted" && <><Trophy className="h-4 w-4 neon-text" /><span className="neon-text font-bold">Accepted! You win! 🎉</span></>}
               {myVerdict === "wrong_answer" && <><XCircle className="h-4 w-4 text-destructive" /><span className="text-destructive">Wrong Answer</span></>}
               {myVerdict === "error" && <><XCircle className="h-4 w-4 text-destructive" /><span className="text-destructive">Runtime Error</span></>}
-              {myVerdict === "pending" && <><Clock className="h-4 w-4 text-yellow-400 animate-spin" /><span className="text-yellow-400">Judging your submission...</span></>}
+              {myVerdict === "pending" && <><Clock className="h-4 w-4 text-warning animate-spin" /><span className="text-warning">Judging your submission...</span></>}
               {allJudged && myVerdict !== "accepted" && (
                 <Button size="sm" variant="outline" onClick={() => navigate("/play")} className="ml-auto font-mono text-xs">
                   Play Again

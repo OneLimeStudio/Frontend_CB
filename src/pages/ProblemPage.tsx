@@ -6,23 +6,12 @@ import { ChevronLeft, Play, Loader2, CheckCircle, XCircle, Clock } from "lucide-
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
+import { getStarter, SUPPORTED_LANGUAGES } from "@/lib/starters";
 
 const DIFFICULTY_COLORS: Record<string, string> = {
   easy: "text-neon border-neon/30 bg-neon/5",
   medium: "text-warning border-warning/30 bg-warning/5",
   hard: "text-destructive border-destructive/30 bg-destructive/5",
-};
-
-const LANGUAGES = ["python", "javascript", "typescript", "cpp", "java", "go", "rust"];
-
-const STARTERS: Record<string, string> = {
-  python: "def solution():\n    # Write your solution here\n    pass\n",
-  javascript: "function solution() {\n  // Write your solution here\n}\n",
-  typescript: "function solution(): void {\n  // Write your solution here\n}\n",
-  cpp: "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n  // Write your solution here\n  return 0;\n}\n",
-  java: "public class Solution {\n  public static void main(String[] args) {\n    // Write your solution here\n  }\n}\n",
-  go: "package main\n\nimport \"fmt\"\n\nfunc main() {\n  // Write your solution here\n}\n",
-  rust: "fn main() {\n  // Write your solution here\n}\n",
 };
 
 export default function ProblemPage() {
@@ -32,8 +21,8 @@ export default function ProblemPage() {
 
   const [problem, setProblem] = useState<Problem | null>(null);
   const [loading, setLoading] = useState(true);
-  const [code, setCode] = useState(STARTERS["python"]);
   const [language, setLanguage] = useState("python");
+  const [code, setCode] = useState(() => getStarter("", "python"));
   const [submitting, setSubmitting] = useState(false);
   const [verdict, setVerdict] = useState<"pending" | "accepted" | "wrong_answer" | "error" | null>(null);
   const [matchId, setMatchId] = useState<string | null>(null);
@@ -49,8 +38,8 @@ export default function ProblemPage() {
   }, [id]);
 
   useEffect(() => {
-    setCode(STARTERS[language] || "");
-  }, [language]);
+    setCode(getStarter(problem?.title ?? "", language));
+  }, [language, problem]);
 
   // Poll for verdict
   useEffect(() => {
@@ -122,9 +111,9 @@ export default function ProblemPage() {
               <SelectValue />
             </SelectTrigger>
             <SelectContent className="font-mono bg-surface border-border">
-              {LANGUAGES.map((lang) => (
-                <SelectItem key={lang} value={lang} className="text-xs">
-                  {lang}
+              {SUPPORTED_LANGUAGES.map(({ value, label }) => (
+                <SelectItem key={value} value={value} className="text-xs">
+                  {label}
                 </SelectItem>
               ))}
             </SelectContent>

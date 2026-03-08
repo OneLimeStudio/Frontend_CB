@@ -94,15 +94,15 @@ export default function Index() {
               icon: Trophy,
               title: "ELO Ranking",
               desc: "Your rating rises and falls with each match. Climb to the top of the leaderboard.",
-              color: "text-yellow-400",
-              border: "border-yellow-400/20",
+              color: "text-warning",
+              border: "border-warning/20",
             },
             {
               icon: BookOpen,
               title: "Problem Library",
               desc: "Hundreds of problems across Easy, Medium, and Hard difficulties. Practice anytime.",
-              color: "text-blue-400",
-              border: "border-blue-400/20",
+              color: "text-info",
+              border: "border-info/20",
             },
           ].map(({ icon: Icon, title, desc, color, border }) => (
             <div key={title} className={`rounded-xl border ${border} bg-surface p-6 hover:bg-surface-elevated transition-colors`}>

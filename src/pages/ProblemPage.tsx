@@ -172,16 +172,16 @@ export default function ProblemPage() {
             verdict === "accepted"
               ? "border-neon/30 bg-neon/5"
               : verdict === "pending"
-              ? "border-yellow-400/30 bg-yellow-400/5"
+              ? "border-warning/30 bg-warning/5"
               : "border-destructive/30 bg-destructive/5"
           }`}>
             {verdict === "accepted" && <CheckCircle className="h-4 w-4 neon-text" />}
             {verdict === "wrong_answer" && <XCircle className="h-4 w-4 text-destructive" />}
             {verdict === "error" && <XCircle className="h-4 w-4 text-destructive" />}
-            {verdict === "pending" && <Clock className="h-4 w-4 text-yellow-400 animate-spin" />}
+            {verdict === "pending" && <Clock className="h-4 w-4 text-warning animate-spin" />}
             <span className={
               verdict === "accepted" ? "neon-text" :
-              verdict === "pending" ? "text-yellow-400" :
+              verdict === "pending" ? "text-warning" :
               "text-destructive"
             }>
               {verdict === "accepted" ? "Accepted ✓" :

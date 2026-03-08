@@ -44,8 +44,8 @@ export default function MatchPage() {
   }, []);
 
   useEffect(() => {
-    setCode(STARTERS[language] || "");
-  }, [language]);
+    setCode(getStarter(match?.problem?.title ?? "", language));
+  }, [language, match]);
 
   const pollResult = async () => {
     if (!id || !user || pollingRef.current) return;

@@ -6,17 +6,7 @@ import { Loader2, Play, CheckCircle, XCircle, Clock, Swords, Trophy } from "luci
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-
-const LANGUAGES = ["python", "javascript", "typescript", "cpp", "java", "go", "rust"];
-const STARTERS: Record<string, string> = {
-  python: "def solution():\n    pass\n",
-  javascript: "function solution() {\n  \n}\n",
-  typescript: "function solution(): void {\n  \n}\n",
-  cpp: "#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n  return 0;\n}\n",
-  java: "public class Solution {\n  public static void main(String[] args) {\n  }\n}\n",
-  go: "package main\nfunc main() {\n}\n",
-  rust: "fn main() {\n}\n",
-};
+import { getStarter, SUPPORTED_LANGUAGES } from "@/lib/starters";
 
 const DIFFICULTY_COLORS: Record<string, string> = {
   easy: "text-neon border-neon/30 bg-neon/5",
@@ -31,8 +21,8 @@ export default function MatchPage() {
 
   const [match, setMatch] = useState<MatchType | null>(null);
   const [loading, setLoading] = useState(true);
-  const [code, setCode] = useState(STARTERS["python"]);
   const [language, setLanguage] = useState("python");
+  const [code, setCode] = useState(() => getStarter("", "python"));
   const [submitting, setSubmitting] = useState(false);
   const [myVerdict, setMyVerdict] = useState<string>("pending");
   const [allJudged, setAllJudged] = useState(false);

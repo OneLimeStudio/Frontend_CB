@@ -111,9 +111,9 @@ export default function ProblemPage() {
               <SelectValue />
             </SelectTrigger>
             <SelectContent className="font-mono bg-surface border-border">
-              {LANGUAGES.map((lang) => (
-                <SelectItem key={lang} value={lang} className="text-xs">
-                  {lang}
+              {SUPPORTED_LANGUAGES.map(({ value, label }) => (
+                <SelectItem key={value} value={value} className="text-xs">
+                  {label}
                 </SelectItem>
               ))}
             </SelectContent>
